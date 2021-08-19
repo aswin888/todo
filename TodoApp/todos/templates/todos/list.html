@@ -6,11 +6,24 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>List</title>
   </head>
   <body>
-    <h1>Index Page</h1>
+    <h1>TODO</h1>
+    <form action="/todos/" method="POST" accept-charset="utf-8">
+      {% csrf_token %}
+      {{form.title}}
+      <input type="submit" name="CreateTask">      
+    </form>
 
+    <br><br>
+    {% for task in data %}
+      <ul>
+        <li>
+          {{ task }}
+        </li>
+      </ul>
+    {% endfor %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
   </body>
