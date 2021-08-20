@@ -25,3 +25,7 @@ def updateTask(request,pk):
 		return redirect('/')
 	context = {"form":form}
 	return render(request,'todos/update.html',context)
+
+def deleteTask(request,pk):
+	Tasks.objects.get(id=pk).delete()
+	return redirect('/')
